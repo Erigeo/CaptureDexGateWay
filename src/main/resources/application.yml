@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ms-email
+          uri: http://localhost:8081  # Endereço do microserviço ms-email
+          predicates:
+            - Path=/emails/**
+        - id: CaptureDexBack
+          uri: http://localhost:8082  # Endereço do mic
